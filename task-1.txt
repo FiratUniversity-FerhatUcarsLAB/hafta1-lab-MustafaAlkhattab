@@ -1,4 +1,82 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541607
+AD-SOYAD:Mustafa Alkhattab
+ALGORITMA GünlükHayat
+
+    // Başlangıç durumu
+    BAŞLA
+
+    // 1. Uyanma
+    SAAT ← 07:00
+    UYANIK ← FALSE
+
+    EĞER SAAT >= 07:00 İSE
+        UYANIK ← TRUE
+        YAZ "Günaydın! Yeni bir güne başlıyorsun."
+    DEĞİLSE
+        YAZ "Henüz erken, biraz daha uyu."
+        BEKLE(30 dakika)
+        SAAT ← SAAT + 00:30
+        GİT BAŞA
+    SON
+
+    // 2. Sabah rutini
+    EĞER UYANIK = TRUE İSE
+        YAZ "Yatağını topluyorsun."
+        YAZ "Dişlerini fırçalıyorsun."
+        YAZ "Yüzünü yıkıyorsun."
+        YAZ "Kahvaltı hazırlığı başlıyor."
+
+        EĞER BUZDOLABI_BOŞ = TRUE İSE
+            YAZ "Markete gitmelisin."
+            GIT_MARKET()
+        DEĞİLSE
+            YAZ "Kahvaltıyı hazırlıyorsun."
+        SON
+
+        KAHVALTI_YAP()
+    SON
+
+    // 3. Gün içi aktiviteleri
+    YAZ "Günün görevlerini kontrol et."
+    GÖREV_LISTESİ ← [ders çalış, egzersiz yap, alışveriş yap, dinlen]
+
+    i ← 1
+    DÖNGÜ i ≤ UZUNLUK(GÖREV_LISTESİ)
+        YAZ "Şu anki görev: " + GÖREV_LISTESİ[i]
+
+        EĞER GÖREV_LISTESİ[i] = "ders çalış" İSE
+            YAZ "Ders çalışılıyor..."
+            BEKLE(2 saat)
+        EĞER GÖREV_LISTESİ[i] = "egzersiz yap" İSE
+            YAZ "Egzersiz yapılıyor..."
+            BEKLE(1 saat)
+        EĞER GÖREV_LISTESİ[i] = "alışveriş yap" İSE
+            YAZ "Alışverişe çıkılıyor..."
+            BEKLE(1 saat)
+        EĞER GÖREV_LISTESİ[i] = "dinlen" İSE
+            YAZ "Dinleniliyor..."
+            BEKLE(30 dakika)
+        SON
+
+        i ← i + 1
+    SON DÖNGÜ
+
+    // 4. Akşam rutini
+    YAZ "Akşam yemeği hazırlanıyor."
+    YEMEK_YAP()
+    YEMEK_YE()
+
+    YAZ "Biraz TV izliyorsun veya kitap okuyorsun."
+
+    // 5. Uyuma zamanı
+    SAAT ← 23:00
+    EĞER SAAT >= 23:00 İSE
+        YAZ "Uyku vakti geldi."
+        UYANIK ← FALSE
+        YAZ "İyi geceler!"
+    SON
+
+    BİTİR
+
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
