@@ -1,4 +1,56 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541607
+AD-SOYAD:Mustafa Alkhattab 
+Algoritma ProblemCozme(problem)
 
+    Girdi: problem → çözülmesi gereken problem tanımı
+    Çıktı: çözüm → problemin çözümü veya çözüm bulunamadı mesajı
+
+    Başla
+
+    // 1. Problemi Tanımla
+    Eğer problem = boş ise:
+        Yazdır "Geçerli bir problem tanımı girilmedi."
+        Dön "Hata: Problem tanımı eksik"
+
+    // 2. Problemi analiz et
+    problemTipi ← ProblemTipiniBelirle(problem)
+    Yazdır "Problem tipi: ", problemTipi
+
+    // 3. Uygun çözüm stratejisini seç
+    Eğer problemTipi = "matematiksel" ise:
+        strateji ← "formül tabanlı çözüm"
+    Aksi halde eğer problemTipi = "mantıksal" ise:
+        strateji ← "adım adım mantıksal çıkarım"
+    Aksi halde eğer problemTipi = "arama problemi" ise:
+        strateji ← "arama algoritması (örneğin BFS, DFS)"
+    Aksi halde:
+        strateji ← "bilinmiyor"
+        Yazdır "Uygun çözüm stratejisi bulunamadı."
+        Dön "Çözüm üretilemedi"
+
+    // 4. Çözüm üret
+    çözümBulundu ← YANLIŞ
+    denemeSayısı ← 0
+    maksimumDeneme ← 5
+
+    Tekrar denemeSayısı < maksimumDeneme VE çözümBulundu = YANLIŞ iken:
+        çözümAdayı ← StratejiyeGoreCozumUret(problem, strateji)
+        denemeSayısı ← denemeSayısı + 1
+
+        // 5. Çözümün doğruluğunu kontrol et
+        Eğer CozumDogruMu(çözümAdayı, problem) ise:
+            çözümBulundu ← DOĞRU
+            çözüm ← çözümAdayı
+        Aksi halde:
+            Yazdır "Çözüm geçersiz, yeni çözüm deneniyor..."
+
+    // 6. Sonucu döndür
+    Eğer çözümBulundu = DOĞRU ise:
+        Yazdır "Çözüm bulundu: ", çözüm
+        Dön çözüm
+    Aksi halde:
+        Yazdır "Çözüm bulunamadı. Lütfen problemi yeniden tanımlayın."
+        Dön "Çözüm bulunamadı"
+
+Bitir
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
