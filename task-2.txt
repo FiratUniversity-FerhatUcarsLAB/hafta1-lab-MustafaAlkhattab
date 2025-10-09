@@ -1,4 +1,41 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541607
+AD-SOYAD:Mustafa Alkhattab
+BAŞLA
+
+OYUN_DURUMU ← BAŞLANGIÇ
+SKOR ← 0
+
+WHILE (OYUN_BITMEDİ(OYUN_DURUMU)) DO
+    EKRANA("Şu anki durum: ", OYUN_DURUMU)
+    
+    OLASIL_HAMLELER ← HAMLELERİ_HESAPLA(OYUN_DURUMU)
+    
+    EN_IYI_HAMLE ← YOK
+    EN_IYI_SKOR ← -∞
+    
+    FOR HER HAMLE IN OLASIL_HAMLELER DO
+        YENI_DURUM ← HAMLEYI_UYGULA(OYUN_DURUMU, HAMLE)
+        SKOR_TAHMİNİ ← STRATEJI_DEGERLENDIR(YENI_DURUM)
+        
+        IF (SKOR_TAHMİNİ > EN_IYI_SKOR) THEN
+            EN_IYI_SKOR ← SKOR_TAHMİNİ
+            EN_IYI_HAMLE ← HAMLE
+        ENDIF
+    ENDFOR
+    
+    OYUN_DURUMU ← HAMLEYI_UYGULA(OYUN_DURUMU, EN_IYI_HAMLE)
+    SKOR ← SKOR + EN_IYI_SKOR
+    
+    IF (OYUNCU_KAZANDI(OYUN_DURUMU)) THEN
+        EKRANA("Kazandın! Toplam Skor: ", SKOR)
+        BREAK
+    ELSE IF (OYUNCU_KAYBETTI(OYUN_DURUMU)) THEN
+        EKRANA("Kaybettin! Tekrar dene.")
+        BREAK
+    ENDIF
+ENDWHILE
+
+EKRANA("Oyun Bitti.")
+BİTİR
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
