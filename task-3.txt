@@ -1,4 +1,45 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541607
+AD-SOYAD:Mustafa Alkhattab
+Algoritma VeriOrganizasyonu(veriListesi)
 
+    Girdi: veriListesi → organize edilecek ham veri dizisi
+    Çıktı: organizeVeri → düzenlenmiş ve gruplandırılmış veri dizisi
+
+    Başla
+
+    // 1. Geçersiz verileri filtrele
+    geçerliVeri ← []
+    her veri içinde veriListesi:
+        Eğer veri ≠ boş VE veri geçerli formatta ise:
+            geçerliVeri'e ekle veri
+
+    // 2. Verileri sıralama (örneğin alfabetik veya sayısal)
+    sıralıVeri ← geçerliVeri'yi artan sırada sırala
+
+    // 3. Verileri gruplandırma (örneğin kategoriye göre)
+    gruplar ← boş sözlük
+    her veri içinde sıralıVeri:
+        kategori ← veri.kategori
+        Eğer kategori gruplar içinde yoksa:
+            gruplar[kategori] ← []
+        gruplar[kategori]'ye ekle veri
+
+    // 4. Her grup için özet oluşturma
+    organizeVeri ← []
+    her kategori içinde gruplar:
+        grupVerisi ← gruplar[kategori]
+        toplam ← 0
+        sayaç ← 0
+
+        her öğe içinde grupVerisi:
+            toplam ← toplam + öğe.değer
+            sayaç ← sayaç + 1
+
+        ortalama ← toplam / sayaç
+        organizeVeri'e ekle {kategori, ortalama, grupVerisi}
+
+    // 5. Sonuçları döndür
+    döndür organizeVeri
+
+Bitir
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
