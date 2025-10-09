@@ -1,4 +1,46 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541607
+AD-SOYAD:Mustafa Alkhattab
+Algoritma UretkenAlgoritma(girdi)
 
+    Girdi: girdi → üretim için tema, anahtar kelime veya başlangıç verisi
+    Çıktı: uretimler → oluşturulan içerik listesi
+
+    Başla
+
+    // 1. Girdiyi kontrol et
+    Eğer girdi = boş ise:
+        Yazdır "Geçerli bir girdi sağlanmadı."
+        Dön "Hata: Girdi eksik"
+
+    // 2. Girdiyi analiz et
+    tema ← TemayiBelirle(girdi)
+    uzunluk ← UretimUzunluguBelirle(girdi)
+    stil ← StilSec(girdi)
+
+    // 3. Üretim parametrelerini ayarla
+    maksimumUretim ← 5
+    uretimler ← []
+
+    // 4. Üretim döngüsü
+    sayaç ← 0
+    Tekrar sayaç < maksimumUretim iken:
+        yeniUretim ← IcerikUret(tema, uzunluk, stil)
+
+        // 5. Koşullu kontrol: üretim geçerli mi?
+        Eğer UretimGecerliMi(yeniUretim) ise:
+            uretimler'e ekle yeniUretim
+        Aksi halde:
+            Yazdır "Geçersiz üretim, tekrar deneniyor..."
+
+        sayaç ← sayaç + 1
+
+    // 6. Üretimleri değerlendir
+    enIyiUretim ← DegerlendirVeSec(uretimler)
+
+    // 7. Sonuçları döndür
+    Yazdır "Üretim tamamlandı. En iyi içerik:"
+    Yazdır enIyiUretim
+    Dön uretimler
+
+Bitir
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
